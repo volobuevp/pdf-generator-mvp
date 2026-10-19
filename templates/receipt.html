@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @font-face {
+      font-family: Main;
+      src: url("{{ font }}");
+    }
+    body {
+      font-family: Main;
+      font-size: 11pt;
+      color: #1a1a1a;
+    }
+    h1 {
+      text-align: center;
+      font-size: 13pt;
+      margin: 0 0 4pt 0;
+    }
+    .company {
+      text-align: center;
+      font-size: 11pt;
+      margin-bottom: 14pt;
+    }
+    .doc-number {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 10pt;
+    }
+    table.meta td {
+      padding: 2pt 8pt 2pt 0;
+    }
+    table.items {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8pt 0;
+    }
+    table.items th, table.items td {
+      border: 0.7pt solid #444444;
+      padding: 4pt 6pt;
+      font-size: 10pt;
+    }
+    table.items th {
+      background-color: #eeeeee;
+      text-align: center;
+    }
+    .total-row td {
+      font-weight: bold;
+      background-color: #f5f5f5;
+    }
+    .signatures {
+      margin-top: 22pt;
+      width: 100%;
+      font-size: 10pt;
+    }
+    .signatures td {
+      padding-top: 14pt;
+    }
+    .sign {
+      border-bottom: 0.7pt solid #000000;
+      display: inline-block;
+      width: 130pt;
+    }
+    .stamp {
+      margin-top: 26pt;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <h1>Заявка на перемещение ТМЦ</h1>
+  <div class="company">{{ company }}</div>
+
+  <div class="doc-number">Перемещение № {{ number }}</div>
+
+  <table class="meta">
+    <tr>
+      <td>Дата отгрузки:</td>
+      <td>{{ ship_date }}</td>
+    </tr>
+    <tr>
+      <td>Дата приёмки:</td>
+      <td>{{ receipt_date }}</td>
+    </tr>
+  </table>
+
+  <table class="items">
+    <tr>
+      <th>Товар</th>
+      <th>Количество</th>
+      <th>Цена за шт</th>
+      <th>Итого</th>
+    </tr>
+    {{ rows }}
+    <tr class="total-row">
+      <td colspan="3">Итого по заявке</td>
+      <td>{{ total }}</td>
+    </tr>
+  </table>
+
+  <table class="signatures">
+    <tr>
+      <td>Груз отправил (грузоотправитель) <span class="sign"></span></td>
+      <td>Подпись <span class="sign"></span></td>
+    </tr>
+    <tr>
+      <td>Груз принял (грузополучатель) <span class="sign"></span></td>
+      <td>Подпись <span class="sign"></span></td>
+    </tr>
+  </table>
+
+  <div class="stamp">м.п.</div>
+</body>
+</html>

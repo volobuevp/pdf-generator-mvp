@@ -1,0 +1,8 @@
+output/
+tmp-dl/
+__pycache__/
+*.pyc
+
+# Рабочие исходники, не для GitHub
+/Python-скрипт - MVP.md
+/тест.csv
